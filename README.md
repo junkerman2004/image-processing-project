@@ -12,7 +12,8 @@ Initially, I attempted to segment the image by detecting blank pixels alone, but
 I first explored existing denoising methods. Traditional denoising methods include spatial domain filtering: Gaussian filtering, median filtering, bilateral filtering, etc., which operate directly on pixel values in the spatial domain to achieve denoising. Transform domain filtering such as Discrete Cosine Transform (DCT), wavelet transform, etc., which convert images from the spatial domain to the transform domain and then perform filtering in the transform domain. Model-based methods like Non-Local Means (NLM) and Block-Matching 3D Filtering (BM3D) algorithms utilize the redundancy of images to remove noise.
 
 For deep learning-based denoising methods, Convolutional Neural Networks (CNNs) leverage the powerful feature extraction capabilities of CNNs to design network structures that directly learn the mapping from noisy to clean images. Autoencoders use an encoding-decoding process to learn image representations for noise removal. Generative Adversarial Networks (GANs) improve denoising performance through adversarial training between generators and discriminators.
-
+![wrong]( 4_pic/图片6.png "figure")
+![wrong]( 4_pic/图片7.png "figure")
 Comparing with mainstream methods, the current mainstream denoising algorithms are deep learning (CNN) based: DnCNN -> FFDNet -> CBDNet, while traditional denoising algorithms like Gaussian and mean filtering yield poor results.
 
 Figures:
@@ -25,11 +26,12 @@ Figure 2. FFDNet
 Figure 3. CBDNet
 ![wrong]( 4_pic/图片4.png "figure")
 [1807.04686] Toward Convolutional Blind Denoising of Real Photographs (arxiv.org)
-
+# Task 3
 DnCNN is one of the most classic algorithms for image denoising using CNN. The algorithm is not complex but surpasses BM3D in terms of PSNR. FFDNet is an upgraded version of DnCNN, with better adaptability to noise and computational efficiency. The structure is consistent with DnCNN, but the input and output are different. This algorithm has an advantage in adapting to different noise levels due to the inclusion of a user-controlled parameter in its input. In FFDNet, a user-input noise intensity parameter σ is added, and in CBDNet, a fully convolutional network is added to learn this parameter, achieving the goal of adaptive noise reduction. This algorithm learns Gaussian-Poisson noise, which is closer to real noise, while the previous two papers learn Gaussian noise; and it combines synthetic and real noise data for model training, enhancing the model's generalization ability to better denoise real scenes.
 
 Comparing the results of the three denoising networks, FFDNet achieved the best results; DnCNN had some denoising effect but did not completely remove the noise; the best-performing CBDNet achieved the worst results. Preliminary consideration is that this algorithm learns noise closer to real noise (Gaussian-Poisson noise), while the noise in img2.jpg is artificially added Gaussian noise, not close to real scenes, hence the poor effect.
-
+![wrong]( 4_pic/图片8.png "figure")
+# Task 4
 Figure 4. TGV [1812.05023] Higher-Order Total Generalized Variation: Imaging Applications (arxiv.org)
 Here, I borrowed a deep learning method, which is a higher-order anisotropic total variation regularizer, used for image denoising, wavelet transform image scaling, and reconstructing surfaces from scattered height measurements. This method extends the Total Generalized Variation (TGV) regularizer and its variants, using the primal-dual mixed gradient method to approximate numerically related gradient flows. By selecting the appropriate regularizer, this method can preserve and enhance the intrinsic anisotropic features of the image.
 
