@@ -7,7 +7,7 @@ Interpolate between noisy images and the original image.
 Implementation Effects and Principle Explanation:
 # Task 1:
 Initially, I attempted to segment the image by detecting blank pixels alone, but found that the approach lacked universality. It was effective for identifying missing parts but struggled with more complex scenarios. Therefore, I adopted a region-growing algorithm based on seed points. The region-growing algorithm is a common technique in image processing that uses certain criteria (such as grayscale similarity) to start from a seed point and gradually expand the region to identify pixel sets with similar characteristics. This method was used for image segmentation.
-![wrong]( 4_pic/图片1.png"figure")
+![wrong]( 4_pic/图片1.png "figure")
 # Task 2:
 I first explored existing denoising methods. Traditional denoising methods include spatial domain filtering: Gaussian filtering, median filtering, bilateral filtering, etc., which operate directly on pixel values in the spatial domain to achieve denoising. Transform domain filtering such as Discrete Cosine Transform (DCT), wavelet transform, etc., which convert images from the spatial domain to the transform domain and then perform filtering in the transform domain. Model-based methods like Non-Local Means (NLM) and Block-Matching 3D Filtering (BM3D) algorithms utilize the redundancy of images to remove noise.
 
