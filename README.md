@@ -17,11 +17,13 @@ Comparing with mainstream methods, the current mainstream denoising algorithms a
 
 Figures:
 Figure 1. DnCNN
+![wrong]( 4_pic/图片2.png "figure")
 [1710.04026] FFDNet: Toward a Fast and Flexible Solution for CNN based Image Denoising (arxiv.org)
 
 Figure 2. FFDNet
-
+![wrong]( 4_pic/图片3.png "figure")
 Figure 3. CBDNet
+![wrong]( 4_pic/图片4.png "figure")
 [1807.04686] Toward Convolutional Blind Denoising of Real Photographs (arxiv.org)
 
 DnCNN is one of the most classic algorithms for image denoising using CNN. The algorithm is not complex but surpasses BM3D in terms of PSNR. FFDNet is an upgraded version of DnCNN, with better adaptability to noise and computational efficiency. The structure is consistent with DnCNN, but the input and output are different. This algorithm has an advantage in adapting to different noise levels due to the inclusion of a user-controlled parameter in its input. In FFDNet, a user-input noise intensity parameter σ is added, and in CBDNet, a fully convolutional network is added to learn this parameter, achieving the goal of adaptive noise reduction. This algorithm learns Gaussian-Poisson noise, which is closer to real noise, while the previous two papers learn Gaussian noise; and it combines synthetic and real noise data for model training, enhancing the model's generalization ability to better denoise real scenes.
